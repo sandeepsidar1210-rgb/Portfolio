@@ -12,6 +12,7 @@ interface ProjectCardProps {
   avatars?: { src: string }[];
   link: string;
   liveLink?: string;
+  techStack?: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,9 +22,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   link,
   liveLink,
+  techStack = [],
 }) => {
   return (
     <Column
+      className="project-row"
       fillWidth
       gap="12"
       paddingY="20"
@@ -37,7 +40,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         {title && (
           <Flex>
-            <Heading as="h2" wrap="balance" variant="heading-strong-l">
+            <Heading className="project-row__title" as="h2" wrap="balance" variant="heading-strong-l">
               {title}
             </Heading>
           </Flex>
@@ -48,19 +51,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {description}
             </Text>
           )}
+          {techStack.length > 0 && (
+            <Flex className="project-row__stack" gap="8" wrap>
+              {techStack.map((technology) => (
+                <span className="project-tech-pill" key={technology}>
+                  {technology}
+                </span>
+              ))}
+            </Flex>
+          )}
           <Flex gap="20" wrap>
             {content?.trim() && (
-              <SmartLink href={href} style={{ margin: "0", width: "fit-content" }}>
+              <SmartLink className="project-action" href={href} style={{ margin: "0", width: "fit-content" }}>
                 <Text variant="body-default-s">View project</Text>
               </SmartLink>
             )}
             {liveLink && (
-              <SmartLink href={liveLink} style={{ margin: "0", width: "fit-content" }}>
+              <SmartLink className="project-action project-action--accent" href={liveLink} style={{ margin: "0", width: "fit-content" }}>
                 <Text variant="body-default-s">Live demo ↗</Text>
               </SmartLink>
             )}
             {link && (
-              <SmartLink href={link} style={{ margin: "0", width: "fit-content" }}>
+              <SmartLink className="project-action" href={link} style={{ margin: "0", width: "fit-content" }}>
                 <Text variant="body-default-s">Source code ↗</Text>
               </SmartLink>
             )}
