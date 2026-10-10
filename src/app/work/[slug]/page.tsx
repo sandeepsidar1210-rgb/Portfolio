@@ -100,6 +100,18 @@ export default async function Project({
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        <Row gap="16" wrap horizontal="center">
+          {post.metadata.liveLink && (
+            <Button href={post.metadata.liveLink} variant="primary" size="s">
+              Live demo ↗
+            </Button>
+          )}
+          {post.metadata.link && (
+            <Button href={post.metadata.link} variant="secondary" size="s">
+              Source code ↗
+            </Button>
+          )}
+        </Row>
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">

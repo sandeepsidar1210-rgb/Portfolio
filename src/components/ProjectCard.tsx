@@ -11,6 +11,7 @@ interface ProjectCardProps {
   description: string;
   avatars?: { src: string }[];
   link: string;
+  liveLink?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,6 +20,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   content,
   description,
   link,
+  liveLink,
 }) => {
   return (
     <Column
@@ -52,9 +54,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 <Text variant="body-default-s">View project</Text>
               </SmartLink>
             )}
+            {liveLink && (
+              <SmartLink href={liveLink} style={{ margin: "0", width: "fit-content" }}>
+                <Text variant="body-default-s">Live demo ↗</Text>
+              </SmartLink>
+            )}
             {link && (
               <SmartLink href={link} style={{ margin: "0", width: "fit-content" }}>
-                <Text variant="body-default-s">GitHub</Text>
+                <Text variant="body-default-s">Source code ↗</Text>
               </SmartLink>
             )}
           </Flex>
