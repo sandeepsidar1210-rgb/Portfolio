@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Home, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -11,12 +11,6 @@ const person: Person = {
   location: "Asia/Kolkata",
   languages: ["English", "Hindi"],
   locale: "en",
-};
-
-const newsletter: Newsletter = {
-  display: false,
-  title: <>Stay in touch with {person.firstName}</>,
-  description: <>Updates about software engineering, systems, and projects.</>,
 };
 
 const social: Social = [
@@ -42,7 +36,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/images/sandeep.jpg",
   label: "Home",
   title: `${person.name} – Full-Stack Software Developer`,
   description:
@@ -195,13 +189,6 @@ const about: About = {
   },
 };
 
-const blog: Blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about software engineering",
-  description: `Notes by ${person.name}`,
-};
-
 const work: Work = {
   path: "/work",
   label: "Work",
@@ -209,12 +196,4 @@ const work: Work = {
   description: `Full-stack and AI projects by ${person.name}`,
 };
 
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Gallery – ${person.name}`,
-  description: `A gallery by ${person.name}`,
-  images: [],
-};
-
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, home, about, work };
