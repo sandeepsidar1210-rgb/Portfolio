@@ -1,7 +1,5 @@
 import {
   BorderStyle,
-  ChartMode,
-  ChartVariant,
   NeutralColor,
   ScalingSize,
   Schemes,
@@ -56,23 +54,6 @@ export type StyleConfig = {
   surface: SurfaceStyle;
   transition: TransitionStyle;
   scaling: ScalingSize;
-};
-
-/**
- * Data style configuration for charts.
- */
-export type DataStyleConfig = {
-  variant: ChartVariant;
-  mode: ChartMode;
-  height: number;
-  axis: {
-    stroke: string;
-  };
-  tick: {
-    fill: string;
-    fontSize: number;
-    line: boolean;
-  };
 };
 
 /**
@@ -152,5 +133,4 @@ export type OnceUIConfig = {
   schema: SchemaConfig;
   sameAs: SameAsConfig;
   effects: EffectsConfig;
-  dataStyle: DataStyleConfig;
 };

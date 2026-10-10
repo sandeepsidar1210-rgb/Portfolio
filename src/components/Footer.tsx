@@ -33,7 +33,7 @@ export const Footer = () => {
                 <IconButton
                   key={item.name}
                   href={item.link}
-                  icon={item.icon}
+                  icon={item.icon as never}
                   tooltip={item.name}
                   size="s"
                   variant="ghost"

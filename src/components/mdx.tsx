@@ -7,7 +7,6 @@ import {
   HeadingLink,
   Text,
   InlineCode,
-  CodeBlock,
   TextProps,
   MediaProps,
   Accordion,
@@ -131,18 +130,9 @@ function createCodeBlock(props: any) {
     const label = language.charAt(0).toUpperCase() + language.slice(1);
 
     return (
-      <CodeBlock
-        marginTop="8"
-        marginBottom="16"
-        codes={[
-          {
-            code: children,
-            language,
-            label,
-          },
-        ]}
-        copyButton={true}
-      />
+      <pre data-language={language}>
+        <code>{children}</code>
+      </pre>
     );
   }
 
@@ -188,7 +178,6 @@ const components = {
   hr: createHR as any,
   Heading,
   Text,
-  CodeBlock,
   InlineCode,
   Accordion,
   AccordionGroup,

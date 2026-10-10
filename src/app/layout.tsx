@@ -10,7 +10,7 @@ import {
   Meta,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, fonts, style, dataStyle, home, person } from "@/resources";
+import { baseURL, fonts, style, home, person } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -59,7 +59,6 @@ export default async function RootLayout({
                     surface: style.surface,
                     transition: style.transition,
                     scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
                   })};
                   
                   // Apply default values

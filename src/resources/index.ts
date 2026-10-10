@@ -15,5 +15,4 @@ export {
   schema,
   sameAs,
   effects,
-  dataStyle,
 } from "./once-ui.config";

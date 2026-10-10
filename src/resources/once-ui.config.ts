@@ -1,5 +1,4 @@
 import {
-  DataStyleConfig,
   DisplayConfig,
   EffectsConfig,
   FontsConfig,
@@ -74,20 +73,6 @@ const style: StyleConfig = {
   scaling: "100", // 90 | 95 | 100 | 105 | 110
 };
 
-const dataStyle: DataStyleConfig = {
-  variant: "flat", // flat | gradient | outline
-  mode: "categorical", // categorical | divergent | sequential
-  height: 24, // default chart height
-  axis: {
-    stroke: "var(--neutral-alpha-weak)",
-  },
-  tick: {
-    fill: "var(--neutral-on-background-weak)",
-    fontSize: 11,
-    line: false,
-  },
-};
-
 const effects: EffectsConfig = {
   mask: {
     cursor: false,
@@ -154,5 +139,4 @@ export {
   schema,
   sameAs,
   effects,
-  dataStyle,
 };

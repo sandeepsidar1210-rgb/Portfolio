@@ -173,7 +173,7 @@ export default function About() {
                           <Button
                             key={item.name}
                             href={item.link}
-                            prefixIcon={item.icon}
+                            prefixIcon={item.icon as never}
                             label={item.name}
                             size="s"
                             weight="default"
@@ -185,7 +185,7 @@ export default function About() {
                             size="l"
                             key={`${item.name}-icon`}
                             href={item.link}
-                            icon={item.icon}
+                            icon={item.icon as never}
                             variant="secondary"
                           />
                         </Row>
@@ -303,7 +303,7 @@ export default function About() {
                     {skill.tags && skill.tags.length > 0 && (
                       <Row wrap gap="8" paddingTop="8">
                         {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon as never}>
                             {tag.name}
                           </Tag>
                         ))}
