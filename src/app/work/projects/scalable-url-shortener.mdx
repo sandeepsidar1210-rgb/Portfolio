@@ -1,0 +1,23 @@
+---
+title: "Scalable URL Shortener"
+description: A high-throughput URL shortening service using custom Base62 encoding and Redis caching.
+summary: A backend system that reduced database read loads by more than 60% through caching.
+publishedAt: "2026-06-01"
+tags:
+  - Node.js
+  - Express.js
+  - Redis
+  - MongoDB
+  - Base62
+---
+
+## Overview
+
+Scalable URL Shortener is a backend-focused service designed for fast redirect resolution and efficient storage. It combines custom Base62 encoding with Redis caching to keep frequently accessed links away from the primary database.
+
+## Engineering highlights
+
+- Built high-throughput REST endpoints with Node.js and Express.
+- Implemented custom Base62 encoding for compact short links.
+- Added Redis caching that cut database read loads by 60%+.
+- Used MongoDB for durable URL and analytics data.
