@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { person } from "@/resources";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -50,7 +51,10 @@ export const Header = () => {
         <a className={pathname === "/about" ? "active" : ""} href="/about">About</a>
         <a href="/#contact">Contact</a>
       </nav>
-      <a className="reference-talk-link" href={`mailto:${person.email}`}>Let&apos;s Talk <span>↗</span></a>
+      <div className="reference-header-actions">
+        <ThemeToggle />
+        <a className="reference-talk-link" href={`mailto:${person.email}`}>Let&apos;s Talk <span>↗</span></a>
+      </div>
     </header>
   );
 };

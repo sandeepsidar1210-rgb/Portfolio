@@ -66,8 +66,10 @@ export default async function RootLayout({
                     root.setAttribute('data-' + key, value);
                   });
                   
-                  // Keep the portfolio on its editorial light theme.
-                  root.setAttribute('data-theme', 'light');
+                  const savedTheme = window.localStorage.getItem('portfolio-theme');
+                  const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+                  root.setAttribute('data-theme', theme);
+                  root.classList.toggle('dark', theme === 'dark');
 
                   const styleKeys = Object.keys(config);
                   styleKeys.forEach(key => {
@@ -75,7 +77,7 @@ export default async function RootLayout({
                   });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'dark');
                 }
               })();
             `,

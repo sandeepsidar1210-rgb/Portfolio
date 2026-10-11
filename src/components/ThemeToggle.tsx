@@ -1,30 +1,34 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Row, ToggleButton, useTheme } from "@once-ui-system/core";
 
 export const ThemeToggle: React.FC = () => {
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     setMounted(true);
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
+    const theme = document.documentElement.getAttribute("data-theme");
+    if (theme === "light" || theme === "dark") setCurrentTheme(theme);
   }, []);
 
-  useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
-  }, [theme]);
+  if (!mounted) return null;
 
-  const icon = currentTheme === "dark" ? "light" : "dark";
   const nextTheme = currentTheme === "light" ? "dark" : "light";
-
   return (
-    <ToggleButton
-      prefixIcon={icon}
-      onClick={() => setTheme(nextTheme)}
+    <button
+      className="theme-toggle"
+      type="button"
+      onClick={() => {
+        document.documentElement.setAttribute("data-theme", nextTheme);
+        document.documentElement.classList.toggle("dark", nextTheme === "dark");
+        window.localStorage.setItem("portfolio-theme", nextTheme);
+        setCurrentTheme(nextTheme);
+      }}
       aria-label={`Switch to ${nextTheme} mode`}
-    />
+    >
+      <span aria-hidden="true">{currentTheme === "dark" ? "☼" : "☾"}</span>
+      {nextTheme === "dark" ? "Dark" : "Light"}
+    </button>
   );
 };
