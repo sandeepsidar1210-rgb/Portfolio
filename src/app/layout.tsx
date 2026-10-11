@@ -14,8 +14,8 @@ import { baseURL, fonts, style, home, person } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
-    title: home.title,
-    description: home.description,
+    title: "Sandeep Kumar Sidar | Full-Stack Engineer",
+    description: "Portfolio of Sandeep Kumar Sidar, a full-stack engineer and Computer Science student building scalable web systems and intelligent applications.",
     baseURL: baseURL,
     path: home.path,
     image: home.image,

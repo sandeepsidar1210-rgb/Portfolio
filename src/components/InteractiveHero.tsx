@@ -94,9 +94,12 @@ export function InteractiveHero({ email }: InteractiveHeroProps) {
       transition={{ duration: 0.7 }}
     >
       <motion.div className="interactive-hero__orb" style={{ x: orbX, y: orbY }} aria-hidden="true" />
-      <div className="interactive-hero__float interactive-hero__float--react">React</div>
-      <div className="interactive-hero__float interactive-hero__float--python">Python</div>
-      <div className="interactive-hero__float interactive-hero__float--express">Express</div>
+      <div className="interactive-hero__float interactive-hero__float--react hidden lg:flex top-12 right-12 z-50">React</div>
+      <div className="interactive-hero__float interactive-hero__float--python hidden lg:flex bottom-12 right-1/3 z-50">Python</div>
+      <div className="interactive-hero__float interactive-hero__float--express hidden lg:flex bottom-32 left-12 z-50">Express</div>
+      <div className="interactive-hero__float interactive-hero__float--node hidden lg:flex top-12 left-12 z-50">Node.js</div>
+      <div className="interactive-hero__float interactive-hero__float--mongo hidden lg:flex bottom-24 right-20 z-50">MongoDB</div>
+      <div className="interactive-hero__float interactive-hero__float--next hidden lg:flex top-1/2 right-12 -translate-y-1/2 z-50">Next.js</div>
       <div className="reference-hero-copy">
         <p className="reference-kicker">FULL-STACK SOFTWARE DEVELOPER &amp; STUDENT</p>
         <h1><ScrambleName /></h1>
