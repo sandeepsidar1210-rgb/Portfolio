@@ -67,7 +67,7 @@ export default async function RootLayout({
                   });
                   
                   const savedTheme = window.localStorage.getItem('data-theme') || window.localStorage.getItem('portfolio-theme');
-                  const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+                  const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'light';
                   root.setAttribute('data-theme', theme);
                   root.classList.toggle('dark', theme === 'dark');
 
@@ -77,7 +77,7 @@ export default async function RootLayout({
                   });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
             `,
