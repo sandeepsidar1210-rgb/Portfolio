@@ -1586,6 +1586,10 @@ body {
   border-bottom: 1px solid #111;
 }
 
+[data-theme="dark"] .reference-section-heading--projects {
+  border-bottom-color: #26344d;
+}
+
 .reference-section-heading--projects > div {
   position: relative;
 }
@@ -1602,12 +1606,20 @@ body {
 .reference-project {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  color: #111;
+  color: #111827;
   text-decoration: none;
 }
 
 .reference-project:hover {
   background: #f7f7f7;
+}
+
+[data-theme="dark"] .reference-project {
+  color: #fff;
+}
+
+[data-theme="dark"] .reference-project:hover {
+  background: #111827;
 }
 
 .reference-project--reverse .reference-project-copy {
@@ -1631,6 +1643,16 @@ body {
   min-height: 390px;
   padding: clamp(2rem, 6vw, 6rem);
   border-right: 1px solid #111;
+}
+
+[data-theme="light"] .reference-project-copy {
+  background: #fff;
+}
+
+[data-theme="dark"] .reference-project-copy {
+  border-right-color: #26344d;
+  background: #111827;
+  color: #fff;
 }
 
 .reference-project-copy h3 {
@@ -1669,6 +1691,10 @@ body {
 
 [data-theme="dark"] .reference-project-copy > span {
   color: #aab9d5;
+}
+
+[data-theme="light"] .reference-project-copy > span {
+  color: #4b5563;
 }
 
 [data-theme="dark"] .reference-project-arrow {

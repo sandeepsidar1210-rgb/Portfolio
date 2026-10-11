@@ -16,12 +16,12 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
   return (
     <section className="reference-projects" id="work">
       <div className="reference-section-heading reference-section-heading--projects">
-        <div><h2>Explore My Top<br />Creations</h2></div>
+        <div><h2 className="text-gray-900 dark:text-white">Explore My Top<br />Creations</h2></div>
         <a className="reference-button reference-button--blue" href="/work">Explore All <Arrow /></a>
       </div>
       {projects.map((project, index) => (
         <a className={`reference-project ${index % 2 ? "reference-project--reverse" : ""}`} href={project.href} key={project.title}>
-          <div className="reference-project-copy">
+          <div className="reference-project-copy bg-white dark:bg-gray-900">
             <span>{project.label}</span>
             <div className="reference-project-title-mask">
               <motion.h3
