@@ -1,16 +1,23 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useTheme } from "@once-ui-system/core";
 
 export const ThemeToggle: React.FC = () => {
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     setMounted(true);
-    const theme = document.documentElement.getAttribute("data-theme");
-    if (theme === "light" || theme === "dark") setCurrentTheme(theme);
   }, []);
+
+  useEffect(() => {
+    if (theme === "light" || theme === "dark") {
+      setCurrentTheme(theme);
+      window.localStorage.setItem("portfolio-theme", theme);
+    }
+  }, [theme]);
 
   if (!mounted) return null;
 
@@ -20,8 +27,7 @@ export const ThemeToggle: React.FC = () => {
       className="theme-toggle"
       type="button"
       onClick={() => {
-        document.documentElement.setAttribute("data-theme", nextTheme);
-        document.documentElement.classList.toggle("dark", nextTheme === "dark");
+        setTheme(nextTheme);
         window.localStorage.setItem("portfolio-theme", nextTheme);
         setCurrentTheme(nextTheme);
       }}

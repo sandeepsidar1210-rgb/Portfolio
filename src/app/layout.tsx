@@ -66,7 +66,7 @@ export default async function RootLayout({
                     root.setAttribute('data-' + key, value);
                   });
                   
-                  const savedTheme = window.localStorage.getItem('portfolio-theme');
+                  const savedTheme = window.localStorage.getItem('data-theme') || window.localStorage.getItem('portfolio-theme');
                   const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
                   root.setAttribute('data-theme', theme);
                   root.classList.toggle('dark', theme === 'dark');
