@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import { person } from "@/resources";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -43,7 +44,12 @@ export const Header = () => {
   const pathname = usePathname() ?? "";
 
   return (
-    <header className="reference-header">
+    <motion.header
+      className="reference-header"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <a className="reference-logo" href="/">Sandeep.</a>
       <nav aria-label="Primary navigation">
         <a className={pathname === "/" ? "active" : ""} href="/">Home</a>
@@ -55,6 +61,6 @@ export const Header = () => {
         <ThemeToggle />
         <a className="reference-talk-link" href={`mailto:${person.email}`}>Let&apos;s Talk <span>↗</span></a>
       </div>
-    </header>
+    </motion.header>
   );
 };

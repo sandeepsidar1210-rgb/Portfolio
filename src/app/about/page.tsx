@@ -16,6 +16,7 @@ import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import { MotionReveal } from "@/components/MotionReveal";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -77,6 +78,7 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
+      <MotionReveal>
       <Row fillWidth s={{ direction: "column"}} horizontal="center">
         {about.avatar.display && (
           <Column
@@ -337,6 +339,7 @@ export default function About() {
           )}
         </Column>
       </Row>
+      </MotionReveal>
     </Column>
   );
 }

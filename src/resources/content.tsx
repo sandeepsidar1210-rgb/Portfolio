@@ -8,7 +8,7 @@ const person: Person = {
   role: "Software Engineering Student & Full-Stack Developer",
   avatar: "/images/sandeep.jpg",
   email: "sandeepsidar1210@gmail.com",
-  location: "Asia/Kolkata",
+  location: "Nava Raipur, India",
   languages: ["English", "Hindi"],
   locale: "en",
 };
