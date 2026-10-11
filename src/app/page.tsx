@@ -4,6 +4,7 @@ import { InteractiveHero } from "@/components/InteractiveHero";
 import { MotionReveal } from "@/components/MotionReveal";
 import { HomeHighlights } from "@/components/HomeHighlights";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
+import { HomeRippleEffect } from "@/components/HomeRippleEffect";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -69,7 +70,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <main className="reference-site">
+    <HomeRippleEffect>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -110,6 +111,6 @@ export default function Home() {
           <div className="reference-contact-links"><span>LET&apos;S CONNECT</span><a href={`mailto:${person.email}`}>{person.email}</a><a href="/about">View my experience <Arrow /></a></div>
         </div>
       </section>
-    </main>
+    </HomeRippleEffect>
   );
 }

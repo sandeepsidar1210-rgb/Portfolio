@@ -32,6 +32,49 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
+}
+
+.home-ripple-surface {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-ripple-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.home-ripple {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 9999px;
+  filter: blur(2px);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  animation: home-ripple-expand 1000ms ease-out forwards;
+}
+
+.home-ripple-surface > :not(.home-ripple-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes home-ripple-expand {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4);
+  }
   min-height: min(680px, calc(100vh - 120px));
   display: flex;
   align-items: center;
@@ -1533,6 +1576,10 @@ body {
   background: #fff;
 }
 
+[data-theme="dark"] .reference-projects {
+  background: #080d18;
+}
+
 .reference-section-heading--projects {
   margin: 0;
   padding: clamp(3rem, 7vw, 7rem);
@@ -1593,6 +1640,14 @@ body {
   line-height: 0.9;
 }
 
+[data-theme="dark"] .reference-project-copy h3 {
+  color: #fff;
+}
+
+[data-theme="light"] .reference-project-copy h3 {
+  color: #111827;
+}
+
 .reference-project-title-mask {
   overflow: hidden;
 }
@@ -1606,6 +1661,66 @@ body {
   margin: 0 0 2.5rem;
   color: #666;
   font-size: 0.9rem;
+}
+
+[data-theme="dark"] .reference-project-copy p {
+  color: #d1d9e8;
+}
+
+[data-theme="dark"] .reference-project-copy > span {
+  color: #aab9d5;
+}
+
+[data-theme="dark"] .reference-project-arrow {
+  border-color: #d1d9e8;
+  color: #fff;
+}
+
+.github-project-filters {
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem 1.25rem;
+  scrollbar-width: thin;
+}
+
+.github-project-filter {
+  flex: 0 0 auto;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  background: transparent;
+  color: #374151;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.github-project-filter:hover {
+  border-color: #2563eb;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.github-project-filter--active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
+[data-theme="dark"] .github-project-filter {
+  border-color: #26344d;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .github-project-filter:hover {
+  border-color: #60a5fa;
+  color: #bfdbfe;
+}
+
+[data-theme="dark"] .github-project-filter--active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
 }
 
 .reference-project-arrow {

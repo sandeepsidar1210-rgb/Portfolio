@@ -25,6 +25,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
             <span>{project.label}</span>
             <div className="reference-project-title-mask">
               <motion.h3
+                className="text-gray-900 dark:text-white"
                 initial={{ y: "100%" }}
                 whileInView={{ y: "0%" }}
                 viewport={{ once: true }}
@@ -33,8 +34,8 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                 {project.title}
               </motion.h3>
             </div>
-            <p>{project.description}</p>
-            <span className="reference-project-arrow">
+            <p className="text-gray-700 dark:text-gray-300">{project.description}</p>
+            <span className="reference-project-arrow text-gray-900 dark:text-white">
               <span className="reference-project-arrow__in"><Arrow /></span>
               <span className="reference-project-arrow__out"><Arrow /></span>
             </span>
